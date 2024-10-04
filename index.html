@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. oG</title>
+  <title>1. OG</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -36,10 +36,10 @@
       transform: scale(1.05);
     }
     #saturday {
-      background-color: #ff6347; 
+      background-color: #ff6347;
     }
     #friday {
-      background-color: #4682b4; 
+      background-color: #4682b4;
     }
     .input-field {
       padding: 10px;
@@ -67,10 +67,10 @@
 </head>
 <body>
   <div id="event-page" class="container">
-    <div id="saturday" class="day" onclick="showEventInfo('Samstags')">
+    <div id="saturday" class="day" onclick="requestPassword('Samstags')">
       <h2>Samstags im Ersten</h2>
     </div>
-    <div id="friday" class="day" onclick="showEventInfo('Freitags')">
+    <div id="friday" class="day" onclick="requestPassword('Freitags')">
         <h2>Freitags im Ersten</h2>
     </div>
   </div>
@@ -88,6 +88,16 @@
   </div>
 
   <script>
+    // Function to request password for each day
+    function requestPassword(day) {
+      let password = prompt(`Enter the password for ${day} events:`);
+      if ((day === 'Samstags' && password === 'samstags123') || (day === 'Freitags' && password === 'freitags123')) {
+        showEventInfo(day);
+      } else {
+        alert('Incorrect password, please try again!');
+      }
+    }
+
     // Function to show event information and contact form
     function showEventInfo(day) {
       document.getElementById('event-page').style.display = 'none';
